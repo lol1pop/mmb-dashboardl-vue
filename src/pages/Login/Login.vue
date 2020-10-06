@@ -75,7 +75,7 @@
           v => !!v || 'E-mail is required',
           v => /.+@.+/.test(v) || 'E-mail must be valid',
         ],
-        password: '123456',
+        password: '',
         passRules: [
           v => !!v || 'Password is required',
           v => v.length >= 6 || 'Min 6 characters'
@@ -84,8 +84,10 @@
     },
     methods: {
       login(){
-        window.localStorage.setItem('authenticated', true);
-        this.$router.push('/dashboard');
+        if(this.password === 'EprBn26WGa') {
+          window.localStorage.setItem('authenticated', true);
+          this.$router.push('/dashboard');
+        }
       }
     }
   }
